@@ -1,0 +1,41 @@
+From 3618e2dfe385a6f2a9086228931964070b914c2c Mon Sep 17 00:00:00 2001
+From: Brian Wong <bwong92@gmail.com>
+Date: Fri, 17 Apr 2020 03:08:07 -0400
+Subject: [PATCH] create patch file
+
+---
+ src/Graph.tsx | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/src/Graph.tsx b/src/Graph.tsx
+index c44881e..77116b3 100644
+--- a/src/Graph.tsx
++++ b/src/Graph.tsx
+@@ -50,15 +50,15 @@ class Graph extends Component<IProps, {}> {
+     if (this.table) {
+       // Load the `table` in the `<perspective-viewer>` DOM reference.
+       elem.setAttribute('view', 'y_line');
+-      // elem.setAttribute('column-pivots', '["stock"]');
+-      // elem.setAttribute('row-pivots, '["timestamp"]);
+-      // elem.setAttribute('columns', '["top_ask_price"]');
+-      // elem.setAttribute('aggregates', `
+-      //   {"stock":"distinct count"},
+-      //   "top_ask_price":"avg",
+-      //   "top_bid_price":"avg",
+-      //   "timestamp":"distinct count"}
+-      // `);
++      elem.setAttribute('column-pivots', '["stock"]');
++      elem.setAttribute('row-pivots', '["timestamp"]');
++      elem.setAttribute('columns', '["top_ask_price"]');
++      elem.setAttribute('aggregates', `{
++        "stock":"distinct count",
++        "top_ask_price":"avg",
++        "top_bid_price":"avg",
++        "timestamp":"distinct count"
++      }`)
+       // Add more Perspective configurations here.
+       elem.load(this.table);
+     }
+-- 
+2.21.0
+
